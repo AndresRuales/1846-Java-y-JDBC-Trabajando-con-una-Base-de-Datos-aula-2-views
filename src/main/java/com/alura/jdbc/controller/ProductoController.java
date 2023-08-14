@@ -3,6 +3,7 @@ package com.alura.jdbc.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -26,6 +27,10 @@ public class ProductoController {
 		Statement statement = (Statement) con.createStatement();
 		
 		boolean result = statement.execute("SELECT ID, NOMBRE, DESCRIPCION, CANTIDAD FROM PRODUCTO");
+		
+		//Devuelve objeto del tipo ResultSet
+		ResultSet resultSet = statement.getResultSet();
+		
 		
 		System.out.println(result);
 		con.close();
