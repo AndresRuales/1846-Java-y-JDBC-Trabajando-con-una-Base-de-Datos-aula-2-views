@@ -35,7 +35,6 @@ public class ProductoController {
 				statement.execute();
 				
 				int updateCount = statement.getUpdateCount();
-				con.close();
 				return updateCount;
 			}
 		}
