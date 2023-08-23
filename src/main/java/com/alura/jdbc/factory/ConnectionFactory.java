@@ -14,21 +14,18 @@ public class ConnectionFactory {
 	
 	
 	public ConnectionFactory() {
-
 		var pooledDataSource = new ComboPooledDataSource();
 		pooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/control_de_stock?useTimeZone=true&serverTimeZone=UTC");
 		pooledDataSource.setUser("root");
 		pooledDataSource.setPassword("root");
+		pooledDataSource.setMaxPoolSize(10);
+		
 		
 		this.datasource = pooledDataSource;
 	}
 	
-	public Connection recuperaConexion() throws SQLException {
-		
+	public Connection recuperaConexion() throws SQLException {	
 		return this.datasource.getConnection();
-		
-		
-		
 	}
 
 }
